@@ -1,0 +1,107 @@
+// laptop/tablet version
+@media screen and (max-width: 1500px) {
+    #header {
+        .header-main {
+            right: 0;
+            padding: 0 3rem;
+    
+            * {
+                text-align: center;
+                margin: 0 auto;
+            }
+    
+            .social {
+                width: fit-content;
+            }
+        }
+    }
+
+    #nav {
+        padding: 0 3rem;
+
+        .nav-wrapper {
+            width: clamp(20rem, 100%, 54rem); 
+            padding: 0 1rem;
+            left: 0;
+        }
+    }    
+}    
+
+// mobile version
+@media screen and (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+    #header {
+        .header-main {
+            .headline {
+                font-size: 7rem;
+                line-height: 10rem;
+                margin-bottom: 4rem;
+                
+                &:before { display: none; }
+            }
+            
+            .description { font-size: 1rem; }
+            
+            .social li a{ font-size: .7rem; }
+        }
+        
+        .header-hero { width: 100%; }
+        
+        &:before {
+            height: 100vh;
+            background: linear-gradient(#00000000, #232220 90%);
+        }
+    }
+
+    #nav {
+        margin: 0;
+        padding: 0;
+
+        .nav-wrapper {
+            position: fixed;
+            height: 4rem;
+            padding: 0 2rem;
+            width: 100%;
+            border-radius: 0;
+
+            .nav-pages {
+                width: 60%;
+                height: calc(100vh - 4rem);
+                position: absolute;
+                transition: transform 1s;
+                right: 100%;
+                top: 4rem;
+                background-color: inherit;
+                padding: 2rem 2rem 0;
+                flex-direction: column;
+                justify-content: center;                
+                align-items: center;
+            }
+
+            #nav-button {
+                display: inline-block;
+                transition: transform 1s, color 1s;
+                color: gray;
+            }
+        }
+    }
+
+    #header, #main, #footer {
+        transition: transform 1s;
+    }
+
+    .nav-pages--show {
+        transform: translateX(100%);
+    }
+
+    .nav-active--display {
+        transform: translateX(60%);
+    }
+
+    .nav-button--fx {
+        transform: rotate(135deg);
+        color: white !important;
+    }
+}

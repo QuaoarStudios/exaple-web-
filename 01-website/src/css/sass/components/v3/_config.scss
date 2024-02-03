@@ -1,0 +1,26 @@
+
+
+
+
+@mixin page-size($padding: 0 8rem, $width: clamp(10rem, 100%, 80rem)) {
+    width: $width;
+    padding: $padding;    
+    margin: auto;
+}
+
+// @mixin flex-h-center {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+// }
+
+// @mixin flex-v-center {
+//     display: flex;
+//     align-content: center;
+//     gap: 1rem;
+// }
+
+// @mixin code($padding: 0) {
+//     padding: $padding;
+//     color: red;
+// }

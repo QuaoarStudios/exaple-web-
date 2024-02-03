@@ -1,0 +1,95 @@
+@use './../base/root' as *;
+@use './../abstracts/colors' as *;
+@use './../abstracts/mixins' as *;
+
+// $nav-height: 6rem;
+$items: 3;
+@mixin styleNavMenu {
+    display: flex;
+    gap: 1rem;
+
+    li a {
+        display: inline-block;
+        width: 4rem;
+        font-size: 0.8rem;
+        text-align: center;
+        position: relative;
+        margin: 0;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            width: 0; height: 100%;
+            top: 3px; left: 0;
+            border-bottom: 1px solid black;
+            transition: width 0.5s ease-in-out;
+        }
+
+        &:hover:before {
+            width: 100%;
+        }
+    }
+}
+
+#nav {
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .nav-logo {
+        width: 5rem;
+    }
+
+    .nav-list {
+        @include styleNavMenu();
+    }
+
+    #nav-button {
+        display: none;
+        transition: transform 1s;
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (max-width: (( (($items * 5) + 10) * 2 + 7) * 18px) ) {
+
+    #nav {
+        .nav-list {
+            display: none;
+        }
+
+        #nav-button {
+            display: inline-block;
+        }
+    }
+
+    .wrapper--show { display: block; }
+
+    #nav-mobile {
+        width: 100%;
+        height: 6rem;
+        background-color: #ff000050;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 4rem;
+        position: fixed;
+
+        .nav-list-mobile {
+            position: fixed;
+            width: 10rem; height: calc(100vh - 6rem);
+            top: 6rem; left: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #cc00ff50;
+            @include styleNavMenu();
+        }
+    }
+
+    .content--move {
+        transform: translate(10rem, 6rem);
+    }      
+}

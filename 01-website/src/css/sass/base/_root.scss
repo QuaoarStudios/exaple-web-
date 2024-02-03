@@ -1,0 +1,54 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+@use '../base/typography' as *;
+
+* {
+padding: 0; 
+margin: 0;
+box-sizing: border-box;
+}
+ 
+:root {
+    font-size: $font-size;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $font-title;
+    line-height: 3.3rem;
+    margin: 2rem 0;
+    text-align: justify;
+    color: black;
+}
+
+    @for $i from 1 through 6 {
+        h#{$i} { font-size: 3.3rem - ($i * 0.3rem); }
+    }
+
+p, span, a, li {
+    font-size: 1rem;
+    font-family: $font-text;
+    font-weight: 400;
+    color: black;
+    letter-spacing: 0.03rem;
+    word-spacing: 0.3rem;
+    line-height: 1.6rem;
+    margin: 1rem 0; 
+    text-align: start;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;        
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+}
+
+a:hover, a:active, a:link, a:visited {
+    color: gray;
+}

@@ -1,0 +1,96 @@
+@use '../base/root' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
+// local-variables:
+$heigth: 3rem;
+$items: 3;
+
+// component
+.nav-wrapper {
+    background-color: $white;
+    height: $heigth;
+    
+    #nav {
+        @include window-size;
+        height: $heigth;
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            @include flex-h-center;
+
+            .app-name { font-size: 1.2rem; }
+        }
+
+        .sources {
+            @include flex-h-center;            
+                        
+            ul {
+                @include flex-h-center;
+
+                li, li a { margin: 0 }
+                
+                li a{
+                    width: 4rem;
+                    display: inline-block;
+                    text-align: center;
+                    position: relative;
+                    transition: color 0.7s ease-in-out;
+                    font-size: 0.8rem;
+                    color: $gray-300;
+                    
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 0; height: 100%;
+                        top: 0; left: 0;
+                        border-bottom: 1px solid $gray-300;
+                        transition: 
+                            width 0.5s ease-in-out,
+                            border-bottom-color 0.7s ease-in-out;
+                    }
+                    
+                    &:hover:before {
+                        width: 100%;
+                        border-bottom-color: $c-palette-four;
+                    }
+                    
+                    &:hover { color: $c-palette-four; }  
+                }    
+            }                
+        }
+
+        #nav-button {
+            display: none;
+            transition: transform 1s;
+            font-size: 1.3rem;
+        }
+    }
+    
+    // responsive
+    @media screen and (max-width: (7rem + (8rem + 15rem) + ($items * 4rem) + (($items - 1 * 1rem)))) {
+        position: relative;
+
+        #nav .sources {
+            ul {
+                width: clamp(10rem, 100%, 20rem);
+                height: calc(100vh - $heigth);
+                position: fixed;
+                flex-direction: column;
+                background-color: $gray-800;
+                top: $heigth;
+                right: -20rem;
+                transition: right 1s;
+                gap: 2rem;
+                padding: 2rem 0 0;
+            }
+
+            #nav-button { display: inline-block; }
+            
+            .nav-active { transform: rotate(45deg); }
+            
+            .menu-active { right: 0; }
+        }
+    }
+}

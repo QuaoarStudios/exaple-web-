@@ -1,0 +1,113 @@
+@use './../base/root' as *;
+@use './../abstracts/colors' as *;
+@use './../abstracts/mixins' as *;
+
+@use 'sass:math';
+
+
+$nav-height: 6rem;
+$items: 4;
+
+// $nav-size: ( 80rem - (($items * 1rem) + 5rem + 10rem) + ($items * 4rem));
+
+// $nav-size: (4rem * $items + 5rem + 10rem );
+$nav-size: (60 + ($items - 3) * 10) * 18px;
+
+
+
+#nav {
+    width: 100%; height: $nav-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-logo {
+        width: 5rem;
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 1rem;
+
+        li {
+            width: 4rem;
+            font-size: 0.8rem;
+            text-align: center;
+            position: relative;
+            
+            &:before {
+                content: '';
+                position: absolute;
+                width: 0; height: 100%;
+                top: 3px; left: 0;
+                border-bottom: 1px solid black;
+                transition: width 0.5s ease-in-out;
+            }
+
+            &:hover:before {
+                width: 100%;
+            }
+        }
+    }
+
+    #nav-button {
+        display: none;
+        transition: transform 1s;
+        font-size: 1.3rem;
+    }
+}
+
+
+// version 1 - no animada
+@media screen and (max-width: $nav-size ) {
+
+    $size-window: clamp(4rem, 100%, 12rem);
+
+    #nav {
+        background-color: white;
+        
+        &.nav--active {
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem;
+        }
+
+        .nav-list {
+            position: fixed;
+            top: $nav-height;
+            left: -20rem; 
+            width: $size-window;
+            height: calc( 100vh - $nav-height);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0px 0px 20px 0;
+            
+            &.nav-list--active {
+                left: 0;
+            }
+        }    
+        
+        #nav-button {
+            display: inline;
+            
+            &.nav-button--active {
+                transform: rotate(135deg);
+            }
+        }
+    }
+    
+    #App {            
+        &.app--effect {
+            overflow: hidden;
+            width: calc(100vw - $size-window);
+            position: relative;
+            left: $size-window;
+            top: $nav-height;
+            border-radius: 10px;
+            box-shadow: 0 0 50px #cfcfcf;
+            border: 1px solid rgb(245, 236, 225);
+        }
+    }    
+}

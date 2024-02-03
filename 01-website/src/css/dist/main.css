@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans&family=Jost:wght@300;400&family=Love+Light&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 3.3rem;
+  margin: 2rem 0;
+  text-align: justify;
+  color: black;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.7rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 2.1rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+}
+
+p, span, a, li {
+  font-size: 1rem;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  color: black;
+  letter-spacing: 0.03rem;
+  word-spacing: 0.3rem;
+  line-height: 1.6rem;
+  margin: 1rem 0;
+  text-align: start;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+a:hover, a:active, a:link, a:visited {
+  color: gray;
+}
+
+#header {
+  width: 100%;
+  background-color: #232220;
+  position: relative;
+}
+#header .header-main {
+  width: clamp(20rem, 100%, 60rem);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  right: 5%;
+  z-index: 1;
+}
+#header .header-main .headline {
+  width: min-content;
+  font-size: 10rem;
+  line-height: 15rem;
+  color: wheat;
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+#header .header-main .headline:before {
+  content: "Style Design";
+  color: rgba(48, 46, 44, 0.3764705882);
+  position: absolute;
+  left: -10rem;
+  bottom: 3rem;
+  width: 10rem;
+  font-family: "Abril Fatface", serif;
+  font-size: 13rem;
+  z-index: -1;
+}
+#header .header-main .description {
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: white;
+  font-weight: 100;
+}
+#header .header-main .social {
+  margin-top: 3rem;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+#header .header-main .social li {
+  width: 3rem;
+  height: 100%;
+  background-color: #1a1918;
+  border-radius: 100px;
+  color: gray;
+  transition: color 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#header .header-main .social li a {
+  color: inherit;
+}
+#header .header-main .social li:hover {
+  color: rgb(231, 231, 231);
+}
+#header .header-hero {
+  width: 65%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#header .header-hero img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#header:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0), #232220);
+  z-index: 1;
+}
+
+#nav {
+  width: 100%;
+  position: absolute;
+  margin-top: 3rem;
+  z-index: 2;
+}
+#nav .nav-wrapper {
+  width: clamp(20rem, 100%, 64rem);
+  height: 3rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #232220;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  position: relative;
+  left: -5%;
+}
+#nav .nav-wrapper .nav-logo span a {
+  color: white;
+}
+#nav .nav-wrapper .nav-pages {
+  display: flex;
+  gap: 2rem;
+  color: gray;
+}
+#nav .nav-wrapper .nav-pages li a {
+  font-size: 0.8rem;
+  color: gray;
+  transition: color 0.5s ease-out;
+}
+#nav .nav-wrapper .nav-pages li a:hover {
+  color: white;
+}
+#nav .nav-wrapper #nav-button {
+  display: none;
+}
+
+@media screen and (max-width: 1500px) {
+  #header .header-main {
+    right: 0;
+    padding: 0 3rem;
+  }
+  #header .header-main * {
+    text-align: center;
+    margin: 0 auto;
+  }
+  #header .header-main .social {
+    width: fit-content;
+  }
+  #nav {
+    padding: 0 3rem;
+  }
+  #nav .nav-wrapper {
+    width: clamp(20rem, 100%, 54rem);
+    padding: 0 1rem;
+    left: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+  }
+  #header .header-main .headline {
+    font-size: 7rem;
+    line-height: 10rem;
+    margin-bottom: 4rem;
+  }
+  #header .header-main .headline:before {
+    display: none;
+  }
+  #header .header-main .description {
+    font-size: 1rem;
+  }
+  #header .header-main .social li a {
+    font-size: 0.7rem;
+  }
+  #header .header-hero {
+    width: 100%;
+  }
+  #header:before {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0), #232220 90%);
+  }
+  #nav {
+    margin: 0;
+    padding: 0;
+  }
+  #nav .nav-wrapper {
+    position: fixed;
+    height: 4rem;
+    padding: 0 2rem;
+    width: 100%;
+    border-radius: 0;
+  }
+  #nav .nav-wrapper .nav-pages {
+    width: 60%;
+    height: calc(100vh - 4rem);
+    position: absolute;
+    transition: transform 1s;
+    right: 100%;
+    top: 4rem;
+    background-color: inherit;
+    padding: 2rem 2rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #nav .nav-wrapper #nav-button {
+    display: inline-block;
+    transition: transform 1s, color 1s;
+    color: gray;
+  }
+  #header, #main, #footer {
+    transition: transform 1s;
+  }
+  .nav-pages--show {
+    transform: translateX(100%);
+  }
+  .nav-active--display {
+    transform: translateX(60%);
+  }
+  .nav-button--fx {
+    transform: rotate(135deg);
+    color: white !important;
+  }
+}

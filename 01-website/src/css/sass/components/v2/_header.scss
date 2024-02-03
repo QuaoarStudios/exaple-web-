@@ -1,0 +1,39 @@
+@use './../base/root' as *;
+@use './../abstracts/colors' as *;
+@use './../abstracts/mixins' as *;
+
+
+// variables locales::
+// $nav-size: 50px;
+$nav-items: 3;
+
+
+#header {
+    width: 100%;
+    height: clamp(5rem, 90vh, 50rem);
+    display: grid;   
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: end;
+    
+    .header-main {
+        width: clamp(10rem, 100%, 40rem);
+        padding: 0 2rem;
+    }
+
+    .header-hero {
+        width: 100%;
+        background: 
+            no-repeat
+            center
+            /cover
+            url('https://images.unsplash.com/photo-1529421052258-e208c07eea78?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');            
+    }
+
+}
+
+#main {
+    margin: auto;
+    width: clamp(10rem, 100%, 80rem);
+    padding: 0 4rem;   
+}

@@ -1,0 +1,106 @@
+@use './../base/root' as *;
+@use './../abstracts/colors' as *;
+@use './../abstracts/colors' as *;
+@use './../base/typography' as *;
+
+#header {
+    width: 100%;
+    background-color: #232220;
+    position: relative;
+    
+    .header-main {
+        width: clamp(20rem, 100%, 60rem); 
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        position: relative;
+        right: 5%;
+        z-index: 1;
+
+        .headline {
+            width: min-content;
+            font-size: 10rem;
+            line-height: 15rem;
+            color: wheat;
+            font-family: $font-style;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            
+            &:before {
+                content: 'Style Design';
+                color: #302e2c60;
+                position: absolute;
+                left: -10rem;
+                bottom: 3rem;
+                width: 10rem;
+                font-family: $font-style;
+                font-size: 13rem;             
+                z-index: -1;
+            }
+        }
+        
+        .description {
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            color: white;
+            font-weight: 100;
+        }
+
+        .social {
+            margin-top: 3rem;
+            width: 100%; height: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            li {
+                width: 3rem; height: 100%;
+                background-color: #1a1918;
+                border-radius: 100px; 
+                color: gray;
+                transition: color 0.5s ease-out;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                a {
+                    color: inherit;
+                }                
+
+                &:hover {
+                    color: rgb(231, 231, 231);
+                }
+            }
+        }
+
+    }
+
+    .header-hero {
+        width: 65%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;     
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(#00000000, #232220);
+        z-index: 1;
+    }
+}

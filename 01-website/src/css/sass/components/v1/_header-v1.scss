@@ -1,0 +1,39 @@
+@use '../base/root' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
+#App {    
+    background-color: $c-palette-main;
+}
+
+header {
+    @include window-size($padding: 4rem);
+    max-height: calc(100vh - 10rem);
+    display: grid;
+    grid-template: 
+    'title    hero' 1fr
+    'social   hero';
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+
+    .social {
+        grid-area: social; 
+
+        ul {            
+            @include flex-h-center;
+
+            li {
+                margin: 0;                
+            }
+        }
+    }
+
+    .title {
+        grid-area: title;
+        @include flex-h-center;
+    }
+
+    .hero {
+        grid-area: hero;
+    }
+}
