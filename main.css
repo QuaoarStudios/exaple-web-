@@ -261,7 +261,7 @@ a:hover, a:active, a:link, a:visited {
   #nav .nav-wrapper .nav-pages {
     width: 60%;
     height: calc(100vh - 4rem);
-    position: absolute;
+    position: fixed;
     transition: transform 1s;
     right: 100%;
     top: 4rem;
